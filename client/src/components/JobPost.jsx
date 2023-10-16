@@ -30,7 +30,7 @@ return(<>
             <br/>
 <div style={{display:"flex",alignItems:"center",gap:10,position:"absolute",bottom:10}}>
 <div className="urgHiring" style={{fontWeight:"bold"}}>{ad.type}</div>
-<span>|</span>
+      {ad.urgent==="Yes" && <span>|</span>}
 {ad.urgent==="Yes" && <div className="urgHiring" style={{fontWeight:"bold",color:"crimson"}}>Urgently Hiring!</div>}
 {ad.benifits && <><span>|</span><div style={{fontWeight:"600"}}>Benifits included</div></>}
 </div>
