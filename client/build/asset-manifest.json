@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.44c4730f.css",
+    "main.js": "/static/js/main.1ee02370.js",
+    "static/media/cars.png": "/static/media/cars.596b96cb7663f7e19230.png",
+    "static/media/loading.gif": "/static/media/loading.30710ad2f0090d84356a.gif",
+    "static/media/giphy.gif": "/static/media/giphy.ce09e4a209cd3c32801d.gif",
+    "static/media/classic.png": "/static/media/classic.adbb9f02d7897b3ead2c.png",
+    "static/media/user_icon.png": "/static/media/user_icon.788c31c447526c407983.png",
+    "static/media/LoadingGifff.gif": "/static/media/LoadingGifff.e49eca4e85198368f95a.gif",
+    "static/media/Furniture.png": "/static/media/Furniture.45b1c3a4f818c2eeaa70.png",
+    "static/media/Camper.jpeg": "/static/media/Camper.0431cc6d64b0ce6ca12a.jpeg",
+    "static/media/Garden.png": "/static/media/Garden.1606e4d356eb45d53807.png",
+    "static/media/interior.jpg": "/static/media/interior.5c9694957cfd2711720d.jpg",
+    "static/media/Houses.png": "/static/media/Houses.c794fa6af62ede57263a.png",
+    "static/media/Tools.png": "/static/media/Tools.fd1cc7c36f4f232389cd.png",
+    "static/media/boat.jpeg": "/static/media/boat.d57cecbab4ff133e6a80.jpeg",
+    "static/media/Motor.jpg": "/static/media/Motor.a636ff4153f63ab7b842.jpg",
+    "static/media/Apartments.png": "/static/media/Apartments.590bad11e402774d0fc4.png",
+    "index.html": "/index.html",
+    "main.44c4730f.css.map": "/static/css/main.44c4730f.css.map",
+    "main.1ee02370.js.map": "/static/js/main.1ee02370.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.44c4730f.css",
+    "static/js/main.1ee02370.js"
+  ]
+}
