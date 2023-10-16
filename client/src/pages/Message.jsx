@@ -106,7 +106,7 @@ const Message=()=>
             setLoading(true)
             try
             {
-             setSocket(io(`https://buyandsell-m45c.onrender.com`, {transports: ['websocket']}))
+             setSocket(io(`https://buyandsell-ttul.onrender.com`, {transports: ['websocket']}))
 
             }
             catch(e)
