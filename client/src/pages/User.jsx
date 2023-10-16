@@ -70,7 +70,7 @@ const User = () => {
                 textAlign: "center",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+             {!loading && <>              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <div style={{ paddingTop: 5 }}>
                   <PhoneIcon />
                 </div>
@@ -81,9 +81,7 @@ const User = () => {
                 onClick={handleReveal}
               >
                 Reveal
-              </div>
-            </div>
-            <div className="row">
+              </div></>}
 
               <div style={{ margin: "60px 0px" }} className="col-lg-12 centerDiv">
                 <div
