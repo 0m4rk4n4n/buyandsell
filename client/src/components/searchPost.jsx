@@ -12,7 +12,7 @@ return(<>
         <div style={{width:"100%"}} className="cardDetails">
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <div style={{fontWeight:"bold",color:"#373373",fontSize:18}}>{ad.title[0].toUpperCase() + ad.title.slice(1).toLowerCase()}</div>
-        <div className="priceForMobile" style={{color:"green",fontWeight:"bold",fontSize:20}}>{"$"}{ad.price?.toLocaleString() && ad.price.toLocaleString()}</div>
+        {ad.adType==="job" ? <div className="priceForMobile" style={{color:"green",fontWeight:"bold",fontSize:20}}>{"$"}{ad.salary===45000 ? "40,000 - 50,000 / Year" : ad.salary===55000 ? "50,000 - 60,000 / Year" : ad.salary===65000 ? "60,000 - 70,000 / Year" : ad.salary===75000 ? "70,000 - 80,000 / Year" : ad.salary===85000 ? "80,000 - 90,000 / Year" : ad.salary===95000 ? "90,000 - 100,000 / Year" : "100,000 / Year"}</div> :  <div className="priceForMobile" style={{color:"green",fontWeight:"bold",fontSize:20}}>{"$"}{ad.price?.toLocaleString() && ad.price.toLocaleString()}</div>}
         </div>
        <div style={{height:3}}></div>
         <div style={{display:"flex",alignItems:"center",gap:10}}>
