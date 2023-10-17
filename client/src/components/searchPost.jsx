@@ -12,7 +12,7 @@ return(<>
         <div style={{width:"100%"}} className="cardDetails">
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <div style={{fontWeight:"bold",color:"#373373",fontSize:18}}>{ad.title[0].toUpperCase() + ad.title.slice(1).toLowerCase()}</div>
-        <div className="priceForMobile" style={{color:"green",fontWeight:"bold",fontSize:20}}>{"$"}{ad.price.toLocaleString() && ad.price.toLocaleString()}</div>
+        <div className="priceForMobile" style={{color:"green",fontWeight:"bold",fontSize:20}}>{"$"}{ad.price?.toLocaleString() && ad.price.toLocaleString()}</div>
         </div>
        <div style={{height:3}}></div>
         <div style={{display:"flex",alignItems:"center",gap:10}}>
