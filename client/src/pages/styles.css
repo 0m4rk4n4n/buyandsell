@@ -1190,6 +1190,13 @@ font-size: 8px !important;
     font-size: 8px !important;
   }
 }
+@media only screen and (max-width: 470px) 
+{
+  .salaryforMobile
+  {
+    font-size: 8px !important;
+  }
+}
 @media only screen and (max-width: 800px) 
 {
 .inp2::placeholder
