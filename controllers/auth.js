@@ -69,7 +69,7 @@ try
       if(ad!==false && ad.length!==0)
       allAds.push(ad[0])
     })
-  res.status(200).json(allAds)
+  res.status(200).json(tempArr)
 }
 catch(e)
 {
