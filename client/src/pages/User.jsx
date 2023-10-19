@@ -21,8 +21,8 @@ const User = () => {
     {
       setLoading(true)
     const res=await axiosInstance.get(`/auth/getalladsforauser/${path.id}`)
-    setAds(res.data[0])
-    setAdsLength(res.data[0].length)
+    setAds(res.data)
+    setAdsLength(res.data.length)
     const res2 = await axiosInstance.get(`/auth/getuser/${path.id}`)
     setUser(res2.data)
     setLoading(false)
