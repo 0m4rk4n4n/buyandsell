@@ -71,6 +71,9 @@ try
       allAds.push(ad[0])
     })
   thirdArr=tempArr.filter((el)=>{return el!==false})
+ thirdArr = [].concat.apply([], thirdArr);
+
+
   res.status(200).json(thirdArr)
 }
 catch(e)
