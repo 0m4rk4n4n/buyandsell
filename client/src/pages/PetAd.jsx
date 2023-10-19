@@ -114,6 +114,7 @@ setTimeout(() => {
     setNumSel(num)
   }
   useEffect(() => {
+            window.scrollTo({top:0,behavior:"smooth"})
     const fun = async () => {
       setLoading(true)
       const res = await axiosInstance.get(`/pets/getsinglead/${path.id}`);
