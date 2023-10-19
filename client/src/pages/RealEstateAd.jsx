@@ -124,6 +124,7 @@ setTimeout(() => {
      fun()
   }
   useEffect(() => {
+            window.scrollTo({top:0,behavior:"smooth"})
     const fun = async () => {
       try {
         setLoading(true)
