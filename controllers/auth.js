@@ -58,6 +58,7 @@ try
 {
   let allAds=[]
   let tempArr=[]
+  let thirdArr=[]
   let carads=await carAd.find({userId:req.params.id})
   let petads=await PetAd.find({userId:req.params.id})
   let realestateads=await RealEstateAd.find({userId:req.params.id})
@@ -69,7 +70,8 @@ try
       if(ad!==false && ad.length!==0)
       allAds.push(ad[0])
     })
-  res.status(200).json(tempArr)
+  thirdArr=tempArr.filter((el)=>{return el!==false})
+  res.status(200).json(thirdArr)
 }
 catch(e)
 {
