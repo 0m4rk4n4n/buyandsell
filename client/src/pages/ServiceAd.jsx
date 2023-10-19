@@ -113,6 +113,7 @@ setTimeout(() => {
     setNumSel(num)
   }
   useEffect(() => {
+            window.scrollTo({top:0,behavior:"smooth"})
     const fun = async () => {
       setLoading(true)
       const res = await axiosInstance.get(`/services/getsinglead/${path.id}`);
