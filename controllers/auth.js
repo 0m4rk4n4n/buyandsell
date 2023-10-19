@@ -63,7 +63,7 @@ try
   let realestateads=await RealEstateAd.find({userId:req.params.id})
   let serviceads=await ServiceAd.find({userId:req.params.id})
   let jobads=await jobAd.find({userId:req.params.id})
-  tempArr.push(carads!==null && carads,petads!==null && petads,realestateads!==null && realestateads,serviceads!==null && serviceads,jobads!==null && jobads)
+  tempArr.push(carads!==null && carads.length>0 && carads,petads!==null && petads.length>0 && petads,realestateads!==null && realestateads.length>0 && realestateads,serviceads!==null && serviceads.length>0 && serviceads,jobads!==null && jobads.length>0 && jobads)
   tempArr.forEach(ad=>
     {
       if(ad!==false && ad.length!==0)
