@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import FilterNoneIcon from "@mui/icons-material/FilterNone";
 import PhoneIcon from "@mui/icons-material/Phone";
 import PersonIcon from "@mui/icons-material/Person";
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import "./styles.css";
 import { Link, useNavigate } from "react-router-dom";
 import UserImg from "../resources/user.png";
@@ -237,8 +238,8 @@ setTimeout(() => {
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Bathrooms:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.bathrooms}</span></div>
 </div>
 <div style={{display:"flex",alignItems:"center",gap:10}}>
-<AddLocationIcon/>
-<div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Location:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.location}</span></div>
+<VerifiedUserIcon/>
+<div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Posted by:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" Owner"}</span></div>
 </div>
 </div>
 <div>
