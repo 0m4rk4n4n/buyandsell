@@ -9,14 +9,12 @@ return(
 <>
 <div className="showHeadersOnMobile" style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:25,display:"none"}}>
             <div className="homeHeaders" style={{fontWeight:"bold"}}>Popular in Autos</div>
-            <Link className="homeHeaders" to="autosbasedoncondition/con+any+condition">Browse All Autos</Link>
             </div>
 <div className="container">
     <div style={{display:"block"}} className="row">
         <div className="col-lg-12 popular">
         <div className="hideHeadersOnMobile" style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
             <div style={{fontWeight:"bold"}}>Popular in Autos</div>
-            <Link to="autosbasedoncondition/con+any+condition" style={{padding:"20px 70px",color:"inherit"}}>Browse All Autos</Link>
             </div>
 
 <div className="cards">
