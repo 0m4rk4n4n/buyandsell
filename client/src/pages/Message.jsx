@@ -83,7 +83,7 @@ const Message=()=>
         {
           setLoading(true)
           const res=await axiosInstance.get(`/auth/getuser/${targetId}`)
-          setName(res.data.name)
+          setName(res.data.name && res.data.charAt(0).toUpperCase() + res.data.slice(1))
           setLoading(false)
         }
       }
@@ -123,7 +123,7 @@ const Message=()=>
                     setUsers([...users,id])
                     if(id!==currentUser._id)
                     {
-                        axiosInstance.get(`/auth/getuser/${id}`).then(res=>setName(res.data.name))
+                        axiosInstance.get(`/auth/getuser/${id}`).then(res=>setName(res.data.name && res.data.charAt(0).toUpperCase() + res.data.slice(1)))
                         setLoading(false)
                     }
                 })
