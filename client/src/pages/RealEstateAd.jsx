@@ -273,7 +273,7 @@ setTimeout(() => {
                       style={{ borderRadius: "50%", display: "block", margin: "5px auto", padding: 5,}} width={100} src={UserImg}/>
                     <div
                       style={{ fontWeight: "bold", color: "#373373", textAlign: "center", padding: 10,}}>
-                     {user.name}
+                     {user.name && user.charAt(0).toUpperCase() + user.slice(1)}
                     </div>
                     <div style={{ color: "#373373", padding: 10 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 10,}}>
@@ -297,7 +297,7 @@ setTimeout(() => {
                   </div>
                   {    !loading && currentUser && currentUser?._id!==ad?.userId && <>              <br/>
                   <div style={{position:"relative"}} className="contact">
-                    <div style={{textAlign:"center",color:"#373373",fontWeight:"bold",position:"absolute",top:5,left:"20%"}}>Send a message to {user.name}</div>
+                    <div style={{textAlign:"center",color:"#373373",fontWeight:"bold",position:"absolute",top:5,left:"20%"}}>Send a message to {user.name && user.charAt(0).toUpperCase() + user.slice(1)}</div>
                     <br/>
                     <textarea onFocus={(e)=>{handleFocus(e)}} onChange={(e)=>{setMsg(e.target.value)}} className="txttxttxt" defaultValue={"Type your message here..."} style={{margin:"0px auto",display:"block",height:150,width:"100%",border:"none",backgroundColor:"rgb(248, 249, 249)",fontSize:15,fontFamily:"monospace"}} type="text"/>
                     <br/><br/>
@@ -311,7 +311,7 @@ setTimeout(() => {
                   </div></>}
                   {    !currentUser && <>              <br/>
                   <div style={{position:"relative"}} className="contact">
-                    <div style={{textAlign:"center",color:"#373373",fontWeight:"bold",position:"absolute",top:5,left:"20%"}}>Send a message to {user.name}</div>
+                    <div style={{textAlign:"center",color:"#373373",fontWeight:"bold",position:"absolute",top:5,left:"20%"}}>Send a message to {user.name && user.charAt(0).toUpperCase() + user.slice(1)}</div>
                     <br/>
                     <textarea onFocus={(e)=>{handleFocus(e)}} className="txttxttxt" defaultValue={"Type your message here..."} style={{margin:"0px auto",display:"block",height:150,width:"100%",border:"none",backgroundColor:"rgb(248, 249, 249)",fontSize:15,fontFamily:"monospace"}} type="text"/>
                     <br/><br/>
@@ -339,7 +339,7 @@ setTimeout(() => {
                     <div
                     className="contact2_text"
                       style={{ fontWeight: "bold", color: "#373373", textAlign: "center", padding: 10,}}>
-                     {user.name}
+                     {user.name && user.charAt(0).toUpperCase() + user.slice(1)}
                     </div>
                     <div className="contact2_text" style={{ color: "#373373", padding: 10 }}>
                       <div className="contact2_text"
@@ -419,7 +419,7 @@ setTimeout(() => {
                     <div style={{color:"rgb(55, 51, 115)",fontSize:18}} className="belowTitle">
                       Posted by {" "}
                       <Link to={`/user/${user._id}`} style={{textDecoration: "none", color: "inherit",fontWeight:"bold",borderBottom:"1px solid rgb(55, 51, 115)"}}>
-                       {user.name}
+                       {user.name && user.charAt(0).toUpperCase() + user.slice(1)}
                         </Link>
                     </div>
 {!loading &&                     <div style={{alignItems: "center",justifyContent:"center", gap: 5,display:loading ? "none" : "flex",padding:"30px 0px"}}>
@@ -500,7 +500,7 @@ setTimeout(() => {
                       style={{ borderRadius: "50%", display: "block", margin: "5px auto", padding: 5,}} width={100} src={UserImg}/>
                     <div
                       style={{ fontWeight: "bold", color: "#373373", textAlign: "center", padding: 10,}}>
-                     {user.name}
+                     {user.name && user.charAt(0).toUpperCase() + user.slice(1)}
                     </div>
                     <div style={{ color: "#373373", padding: 10 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 10,}}>
@@ -544,7 +544,7 @@ setTimeout(() => {
       </div>
       {    !loading && currentUser && currentUser?._id!==ad?.userId && <div className="showOnSmallDevice" style={{display:"none"}}>              <br/>
                   <div style={{position:"relative"}}>
-                    <div style={{textAlign:"center",color:"#373373",fontWeight:"bold"}}>Send a message to {user.name}</div>
+                    <div style={{textAlign:"center",color:"#373373",fontWeight:"bold"}}>Send a message to {user.name && user.charAt(0).toUpperCase() + user.slice(1)}</div>
                     <br/>
                     <textarea onFocus={(e)=>{handleFocus(e)}} onChange={(e)=>{setMsg(e.target.value)}} className="txttxttxt" defaultValue={"Type your message here..."} style={{margin:"0px auto",display:"block",height:150,width:"80%",border:"none",backgroundColor:"#fff",fontSize:15,fontFamily:"monospace"}} type="text"/>
                     <br/><br/>
@@ -559,7 +559,7 @@ setTimeout(() => {
                   </div></div>}
                   {    !currentUser && <div className="showOnSmallDevice" style={{display:"none"}}>              <br/>
                   <div style={{position:"relative"}}>
-                    <div style={{textAlign:"center",color:"#373373",fontWeight:"bold"}}>Send a message to {user.name}</div>
+                    <div style={{textAlign:"center",color:"#373373",fontWeight:"bold"}}>Send a message to {user.name && user.charAt(0).toUpperCase() + user.slice(1)}</div>
                     <br/>
                     <textarea onFocus={(e)=>{handleFocus(e)}} className="txttxttxt" defaultValue={"Type your message here..."} style={{margin:"0px auto",display:"block",height:150,width:"80%",border:"none",backgroundColor:"#fff",fontSize:15,fontFamily:"monospace"}} type="text"/>
                     <br/>
