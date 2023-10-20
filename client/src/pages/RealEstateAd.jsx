@@ -229,14 +229,14 @@ setTimeout(() => {
 <ApartmentIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Size:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.size}{" "}sq<sup>2</sup></span></div>
 </div>
-<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
+{ad.type!=="Land for sale" && <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
 <SingleBedIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Bedrooms:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.bedrooms}</span></div>
-</div>
-<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
+</div>}
+{ad.type!=="Land for sale" && <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
 <BathroomIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Bathrooms:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.bathrooms}</span></div>
-</div>
+</div>}
 <div style={{display:"flex",alignItems:"center",gap:10}}>
 <VerifiedUserIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Posted by:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" Owner"}</span></div>
@@ -251,18 +251,19 @@ setTimeout(() => {
 <AttachMoneyIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>{ad?.type==="Long term rentals" || ad?.type==="Short term rentals" || ad?.type==="Office for Rent" || ad?.type==="Room for Rent" ? "Rental" : "Price"}:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" $"}{ad?.price}/Month</span></div>
 </div>
-<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
+{ad.type!=="Land for sale" && <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
 <PetsIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Pets Allowed:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.pets===true ? "Yes" : "No"}</span></div>
-</div>
-<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
+</div>}
+
+<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:ad.type==="Land for sale" ? 0 : 50}}>
 <PlaceIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Location:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.location}</span></div>
 </div>
-<div style={{display:"flex",alignItems:"center",gap:10}}>
+{ad.type!=="Land for sale" && <div style={{display:"flex",alignItems:"center",gap:10}}>
 <CalendarTodayIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Date Modified:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.createdAt===ad?.updatedAt ? "Never" : ad?.updatedAt}</span></div>
-</div>
+</div>}
 </div>
 </div>}
 </div>
@@ -456,17 +457,17 @@ setTimeout(() => {
 <ApartmentIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Size:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.size}{" "}sq<sup>2</sup></span></div>
 </div>
-<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
+{ad.type!=="Land for sale" && <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
 <SingleBedIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Bedrooms:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.bedrooms}</span></div>
-</div>
-<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
+</div>}
+{ad.type!=="Land for sale" && <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
 <BathroomIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Bathrooms:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.bathrooms}</span></div>
-</div>
+</div>}
 <div style={{display:"flex",alignItems:"center",gap:10}}>
-<AddLocationIcon/>
-<div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Location:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.location}</span></div>
+<VerifiedUserIcon/>
+<div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Posted by:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" Owner"}</span></div>
 </div>
 </div>
 <div>
@@ -478,18 +479,18 @@ setTimeout(() => {
 <AttachMoneyIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>{ad?.type==="Long term rentals" || ad?.type==="Short term rentals" || ad?.type==="Office for Rent" || ad?.type==="Room for Rent" ? "Rental" : "Price"}:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" $"}{ad?.price}/Month</span></div>
 </div>
-<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
+{ad.type!=="Land for sale" && <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
 <PetsIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Pets Allowed:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.pets===true ? "Yes" : "No"}</span></div>
-</div>
-<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
+</div>}
+<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:ad.type==="Land for sale" ? 0 : 50}}>
 <PlaceIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Location:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.location}</span></div>
 </div>
-<div style={{display:"flex",alignItems:"center",gap:10}}>
+{ad.type!=="Land for sale" && <div style={{display:"flex",alignItems:"center",gap:10}}>
 <CalendarTodayIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Date Modified:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.createdAt===ad?.updatedAt ? "Never" : ad?.updatedAt}</span></div>
-</div>
+</div>}
 </div>
 </div>}
 </div>
