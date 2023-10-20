@@ -83,7 +83,7 @@ const Message=()=>
         {
           setLoading(true)
           const res=await axiosInstance.get(`/auth/getuser/${targetId}`)
-          setName(res.data.name && res.data.charAt(0).toUpperCase() + res.data.slice(1))
+          setName(res.data.name)
           setLoading(false)
         }
       }
@@ -123,7 +123,7 @@ const Message=()=>
                     setUsers([...users,id])
                     if(id!==currentUser._id)
                     {
-                        axiosInstance.get(`/auth/getuser/${id}`).then(res=>setName(res.data.name && res.data.charAt(0).toUpperCase() + res.data.slice(1)))
+                        axiosInstance.get(`/auth/getuser/${id}`).then(res=>setName(res.data.name))
                         setLoading(false)
                     }
                 })
@@ -261,7 +261,7 @@ const Message=()=>
 <div><img className="loadingGif" width={50} src={LoadingGif}/></div>
 </div> :      <>     
           <span className="convName" style={{borderBottom:"2px solid lightgrey",color:"#05728f",textAlign:"center",display:"block",margin:"0px auto",fontSize:15,fontWeight:"600",margin:"0px 0px 10px 0px",paddingBottom:10,color:"#373373"}}>
-            {conversations.length===0 ? "You have no conversations" :  tarConv===null ? "Select a conversation to start" : `Conversation with ${name}`}
+            {conversations.length===0 ? "You have no conversations" :  tarConv===null ? "Select a conversation to start" : `Conversation with ${name && name.charAt(0).toUpperCase() + name.slice(1)}`}
           </span>
           <div className="msg_history">
             {currentUser && messages.map(message=>
