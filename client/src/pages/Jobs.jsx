@@ -175,9 +175,9 @@ const RealEstate=()=>
                 setLowestF(false)
                 setHighestF(false)
                 if(altArr===null)
-                setAds(ads.slice().sort((a, b) => b.createdAt > a.createdAt ? 1 : -1))
+                setAds(ads.slice().sort((a, b) => b.createdAt > a.createdAt ? -1 : 1))
                 else 
-                setAds(altArr.slice().sort((a, b) => b.createdAt > a.createdAt ? 1 : -1))
+                setAds(altArr.slice().sort((a, b) => b.createdAt > a.createdAt ? -1 : 1))
                 setLoading(false)
             }
             catch(e)
