@@ -20,14 +20,12 @@ return(
 <>
 <div className="showHeadersOnMobile" style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:25,display:"none"}}>
             <div className="homeHeadersbuyandsell" style={{fontWeight:"bold"}}>Popular in Buy and Sell</div>
-            <Link to={`${r===1 ? "services" : r===2 ? "jobs/jobs" : "pets"}`} className="homeHeadersbuyandsell">Browse All in Buy and Sell</Link>
             </div>
 <div className="container">
     <div style={{display:"block"}} className="row">
         <div className="col-lg-12 popular">
         <div className="hideHeadersOnMobile" style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
             <div style={{fontWeight:"bold",padding:"20px 0px"}}>Popular in Buy and Sell</div>
-            <Link to={`${r===1 ? "services" : r===2 ? "jobs/jobs" : "pets"}`} style={{padding:"20px 70px"}}>Browse All in Buy and Sell</Link>
             </div>
 <div className="cards">
     <Link to="/jobs/jobs" style={{backgroundImage:`url(${Furniture})`,backgroundPosition:"center"}} className="buyandsellCard">
