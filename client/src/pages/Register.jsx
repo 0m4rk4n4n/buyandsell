@@ -53,7 +53,7 @@ password1===password2 ? setPasswordsEqual(true) : setPasswordsEqual(false)
                         const res=await axiosInstance.post("/Auth/register/",{name:name,email:email,password:password1,phone:phone})
                         await axiosInstance.post(`/conversation`,{senderId:"65249962de83e8e0dbce8ec9",receiverId:res.data._id})
                         const ress=await axiosInstance.get(`/conversation/getaconversation/65249962de83e8e0dbce8ec9/${res.data._id}`)
-                        await axiosInstance.post(`/message`,{conversationId:ress.data._id,sender:"65249962de83e8e0dbce8ec9",message:`Hello ${res.data.name}, Thank you for using buyandsell. This is a friendly reminder that conversations can't be made through this section. Users may go to an Ad they like and start a conversation from there. Thank you for using our service, Buyandsell Team`})
+                        await axiosInstance.post(`/message`,{conversationId:ress.data._id,sender:"65249962de83e8e0dbce8ec9",message:`Hello ${res.data.name && res.data.name && res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1)}, Thank you for using buyandsell. This is a friendly reminder that conversations can't be made through this section. Users may go to an Ad they like and start a conversation from there. Thank you for using our service, Buyandsell Team`})
                         passwordsEqual && res.status===200  && dispatch(loginSuccess(res.data)) && navigate("/user-main-page")
                     }
                     catch(e)
