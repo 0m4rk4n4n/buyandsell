@@ -277,8 +277,8 @@ return(<>
 <select ref={sel} onChange={(e)=>{handleMethod(e.target.value)}} style={{cursor:"pointer"}} selected="Categories" placeholder="Categories" className="Input" name="cars" id="cars">
   <option defaultChecked={true} value="all">Posted: newest first</option>
   <option value="oldest_first">Posted: oldest first</option>
-  <option value="lowest_first">Price: lowest first</option>
-  <option value="highest_first">Price: highest first</option>
+  <option value="lowest_first">Salary: lowest first</option>
+  <option value="highest_first">Salary: highest first</option>
 </select>
                     </div>
                 </div>
