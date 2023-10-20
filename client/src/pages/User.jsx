@@ -56,7 +56,7 @@ const User = () => {
                 fontSize: 20,
               }}
             >
-             {user.name}
+             {user.name && user.name.charAt(0).toUpperCase() + user.name.slice(1)}
             </div>
             {!loading &&             <div style={{ textAlign: "center", fontSize: "large",fontWeight:600,color:"#373373" }}>
               Member since {format(user.createdAt)}
