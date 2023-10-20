@@ -219,7 +219,7 @@ setTimeout(() => {
                 style={{ color: "#373373", padding: "10px 50px", fontWeight: "bold",}} className="overview">
                 Overview:
               </div>
-              {!loading && <div className="otherData">
+              {!loading && <div style={{minHeight:ad.type==="Land for sale" ? 10 : "inherit"}} className="otherData">
 <div>
 <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
 <BorderHorizontalIcon/>
@@ -447,7 +447,7 @@ setTimeout(() => {
                 style={{ color: "#373373", padding: "20px 0px", fontWeight: "bold",}} className="overview">
                 Overview:
               </div>
-              {!loading && <div className="otherData">
+              {!loading && <div style={{minHeight:ad.type==="Land for sale" ? 10 : "inherit"}} className="otherData">
 <div>
 <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:50}}>
 <BorderHorizontalIcon/>
