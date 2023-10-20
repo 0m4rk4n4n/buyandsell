@@ -137,7 +137,7 @@ return(<div style={{overflow:"hidden"}}>
           </Button>
           <Menu {...bindMenu(popupState)}>
             <div style={{minWidth:200,textAlign:"center",fontWeight:"600"}}>
-              Welcome {currentUser.name}!
+                Welcome {currentUser.name && currentUser.name.charAt(0).toUpperCase() + currentUser.name.slice(1)}!
             </div>
             <div style={{height:1,width:200,backgroundColor:"grey"}}></div>
             <Link style={{textDecoration:"none",color:"inherit"}} to="/">
