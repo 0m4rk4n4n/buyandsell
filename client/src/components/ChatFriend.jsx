@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import "./styles.css"
 import { axiosInstance } from "../config/Config.js"
 import { useDispatch, useSelector } from "react-redux"
@@ -14,8 +14,23 @@ const ChatFriend=({conversation,socket,setTargetId,setTarConv})=>
     const dispatch=useDispatch()
     const [notificationn,setNotificationn]=useState(false)
     const [otherUser,setOtherUser]=useState(null)
+    const notificationRef = useRef(false);
+    useEffect(() => {
+      if (socket) {
+        socket.on("getMessage", (data) => {
+          if (data.senderId === conversation.members[0] || data.senderId === conversation.members[1]) {
+            notificationRef.current = true;
+          }
+        });
+    
+        return () => {
+          socket.off("getMessage");
+        };
+      }
+    }, [socket, conversation.members]);
     const handleTargetConv=()=>
     {
+      notificationRef.current=false
       setRead(false)
       setNotificationn(false)
       setLoading(true)
@@ -96,7 +111,7 @@ const ChatFriend=({conversation,socket,setTargetId,setTarConv})=>
           <h5 className="chatName">{user.name && user.name.charAt(0).toUpperCase() + user.name.slice(1)} <span className="chat_date">{conversation.updatedAt && conversation.updatedAt.split("T")[0]}</span></h5>
         </div>
       </div>
-           {!loading && read && <div className="NewMsg" style={{color:"crimson",textAlign:"right"}}>New Message</div>}
+           {!loading && read || notificationRef.current && <div className="NewMsg" style={{color:"crimson",textAlign:"right"}}>New Message</div>}
     </div>
   </div>)
 }
