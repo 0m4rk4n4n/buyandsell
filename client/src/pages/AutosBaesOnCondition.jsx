@@ -780,6 +780,7 @@ if(type==="condition")
 try 
 {
     setLoading(true)
+    await axiosInstance.get(`/autos/fetchbasedoncondition/${condition}/${location}`)
     const res=await axiosInstance.get(`/autos/fetchbasedoncondition/${condition}/${location}`)
     setAds(res.data)
     setLoading(false)
