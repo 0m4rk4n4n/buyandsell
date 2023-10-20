@@ -93,7 +93,7 @@ const ChatFriend=({conversation,socket,setTargetId,setTarConv})=>
       <div className="chat_people">
         <div style={{mixBlendMode:"multiply"}} className="chat_img"> <img src={Avatar} alt="Avatar"/> </div>
         <div style={{position:"relative"}} className="chat_ib">
-          <h5 className="chatName">{user.name} <span className="chat_date">{conversation.updatedAt && conversation.updatedAt.split("T")[0]}</span></h5>
+          <h5 className="chatName">{user.name && user.name.charAt(0).toUpperCase() + user.name.slice(1)} <span className="chat_date">{conversation.updatedAt && conversation.updatedAt.split("T")[0]}</span></h5>
         </div>
       </div>
            {!loading && read && <div className="NewMsg" style={{color:"crimson",textAlign:"right"}}>New Message</div>}
