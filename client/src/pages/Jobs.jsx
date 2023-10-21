@@ -265,7 +265,7 @@ return(<>
                 <div className="content">
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
 <h5 className="headingsForMobile" style={{fontWeight:"bold",color:"#373373"}}>{displayVal} in {location==="Newfoundland and Labrador" ? "Newfoundland" : location}</h5>
-<h5 className="headingsForMobile" style={{fontWeight:"bold",color:"#373373"}}>Showing {!loading ? ads.length : "~"} Result{ads.length>1? "s" : ""} in {location==="Newfoundland and Labrador" ? "Newfoundland" : location}</h5>
+<h5 className="headingsForMobile" style={{fontWeight:"bold",color:"#373373"}}>Showing {!loading && altArr===null ? ads.length : altArr!==null ? altArr.length : "~"} Result{altArr===null && ads.length>1 || altArr!==null && altArr.length>1? "s" : ""} in {location==="Newfoundland and Labrador" ? "Newfoundland" : location}</h5>
                     </div>
                     <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
 <div style={{fontWeight:"bold",color:"#373373"}}><div className="filtersIcon" style={{textAlign:"left",display:"flex",justifyContent:"center",gap:5,display:"none"}}>
@@ -288,13 +288,13 @@ return(<>
             <div className="col-lg-3">
             <div className={`filter ${filtered && "filtered"}`}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-<h6  style={{fontWeight:"bold",color:"#373373"}}>Current Matches ({ads.length})</h6>
+<h6  style={{fontWeight:"bold",color:"#373373"}}>Current Matches ({altArr===null ? ads.length : altArr.length})</h6>
 {filtered && <h6 className="hideOnExpand" onClick={()=>{setFiltered(false)}} style={{fontWeight:"bold",color:"#373373",cursor:"pointer"}}>X</h6>}
     </div>
     <div className="hr"></div>
     <h6 className="title">Location:</h6>
 <div className="city sel3ct3d">
-    {location==="Newfoundland and Labrador" ? "Newfoundland" : location} ({ads.length})
+    {location==="Newfoundland and Labrador" ? "Newfoundland" : location} ({altArr===null ? ads.length : altArr.length})
 </div>
 <div className="hr"></div>
 <div className="autoResults">
