@@ -400,7 +400,7 @@ setTimeout(() => {
             <div className="col-sm-12">
               <div className="row">
                 <div className="col-sm-12">
-                  <div className="fromAutos" style={{fontWeight: "bold",fontSize: 30,color: "#373373",}}>From Autos in {location}</div>
+                  <div className="fromAutos" style={{fontWeight: "bold",fontSize: 30,color: "#373373",}}>From Real Estate in {location}</div>
                   <br />
                   <br />
                   <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
