@@ -42,7 +42,7 @@ const AutosBasedOnCondition=()=>
     const navigate=useNavigate()
     const path=useParams()
     const [loading,setLoading]=useState(false)
-    const [displayVal,setDisplayVal]=useState("Real Estate")
+    const [displayVal,setDisplayVal]=useState("Autos")
     const [neww,setNeww]=useState(0)
     const [used,setUsed]=useState(0)
     const [acura,setAcura]=useState(0)
