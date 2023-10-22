@@ -15,7 +15,7 @@ const ForgotPassword=()=>
     const handleClick=(e)=>
     {
         e.preventDefault()
-          if(e.target.value===0 || e.target.value==="0" || e.target.value===null || e.target.value===undefined)
+          if(e.target.value!==0 || e.target.value!=="0" || e.target.value!==null || e.target.value!==undefined)
           {
                 setTimeout(() => {
                 setOpen(true)
