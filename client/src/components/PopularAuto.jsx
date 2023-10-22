@@ -18,13 +18,13 @@ return(
             </div>
 
 <div className="cards">
-    <Link to="/autosbasedoncondition/con+new+condition" style={{backgroundImage:`url(${Interior})`,backgroundPosition:"center"}} className="buyandsellCard">
+    <Link to="/autosbasedoncondition/New" style={{backgroundImage:`url(${Interior})`,backgroundPosition:"center"}} className="buyandsellCard">
 <span className="cardContent">Brand new cars</span>
     </Link>
-    <Link to="/autosbasedoncondition/con+used+condition" style={{backgroundImage:`url(${Boat})`,backgroundPosition:"center"}} className="buyandsellCard">
+    <Link to="/autosbasedoncondition/Used" style={{backgroundImage:`url(${Boat})`,backgroundPosition:"center"}} className="buyandsellCard">
 <span className="cardContent">Used Cars</span>
     </Link>
-    <Link to="/autosbasedoncondition/0+Electric+fuel_type" style={{backgroundImage:`url(${Motor})`,backgroundPosition:"center"}} className="buyandsellCard">
+    <Link to="/autosbasedoncondition/Electric" style={{backgroundImage:`url(${Motor})`,backgroundPosition:"center"}} className="buyandsellCard">
 <span className="cardContent">Electric vehicles</span>
     </Link>    
 </div>
