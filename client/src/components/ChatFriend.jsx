@@ -111,7 +111,7 @@ const ChatFriend=({conversation,socket,setTargetId,setTarConv})=>
           <h5 className="chatName">{user.name && user.name.charAt(0).toUpperCase() + user.name.slice(1)} <span className="chat_date">{conversation.updatedAt && conversation.updatedAt.split("T")[0]}</span></h5>
         </div>
       </div>
-           {!loading && read || notificationRef.current && <div className="NewMsg" style={{color:"crimson",textAlign:"right"}}>New Message</div>}
+           {!loading && (read || notificationRef.current) && <div className="NewMsg" style={{color:"crimson",textAlign:"right"}}>New Message</div>}
     </div>
   </div>)
 }
