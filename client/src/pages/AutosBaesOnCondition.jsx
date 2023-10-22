@@ -135,6 +135,27 @@ const AutosBasedOnCondition=()=>
     const [automatic,setAutomatic]=useState(0)
     const [manual,setManual]=useState(0)
     useEffect(()=>
+    {
+        const fun=async()=>
+        {
+       if(path.id==="New&Cars")
+       {
+                const data=await axiosInstance.get(`/autos/getallads/${location}`)
+        setAltArr(data.data.filter(ad=>{return ad.condition==="New" && ad.location===location!=="Canada" && ad.location}))
+       }
+       if(path.id==="Used&Cars")
+       {
+                const data=await axiosInstance.get(`/autos/getallads/${location}`)
+                setAltArr(data.data.filter(ad=>{return ad.condition==="Used" && ad.location===location!=="Canada" && ad.location}))
+       }
+       if(path.id==="Electric&Cars")
+       {
+                const data=await axiosInstance.get(`/autos/getallads/${location}`)
+                setAltArr(data.data.filter(ad=>{return ad.fuelType==="Electric" && ad.location===location!=="Canada" && ad.location}))
+       }}
+       fun()
+    },[])
+    useEffect(()=>
     {        
         setChevrolet(ads.filter(ad=>{return ad.make==="Chevrolet" && ad.location===location!=="Canada" && ad.location}).length)
         setAston(ads.filter(ad=>{return ad.make==="Aston" && ad.location===location!=="Canada" && ad.location}).length)
