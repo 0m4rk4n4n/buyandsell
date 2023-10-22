@@ -34,9 +34,9 @@ return(<div className="footer">
         <div className="class34" style={{color:"#fff",fontWeight:"bold",textAlign:"center"}}>Popular Ads </div>
 
         <div to="" style={{color:"#fff",textAlign:"center"}}>
-        <Link to="/autosbasedoncondition/con+new+condition" style={{marginTop:10,color:"inherit",display:"inherit"}}>Brand New Cars</Link>
-        <Link to="/autosbasedoncondition/con+used+condition" style={{marginTop:10,color:"inherit",display:"inherit"}}>Used Cars</Link>
-        <Link to="/autosbasedoncondition/0+Electric+fuel_type" style={{marginTop:10,color:"inherit",display:"inherit"}}>Electric Vehicles</Link>
+        <Link to="/autosbasedoncondition/New" style={{marginTop:10,color:"inherit",display:"inherit"}}>Brand New Cars</Link>
+        <Link to="/autosbasedoncondition/Used" style={{marginTop:10,color:"inherit",display:"inherit"}}>Used Cars</Link>
+        <Link to="/autosbasedoncondition/Electric" style={{marginTop:10,color:"inherit",display:"inherit"}}>Electric Vehicles</Link>
         <Link to="/real-estate/Houses-For-Sale" style={{marginTop:10,color:"inherit",display:"inherit"}}>Houses for sale</Link>
         <Link to="/real-estate/Long-Term-Rentals" style={{marginTop:10,color:"inherit",display:"inherit"}}>Rentals</Link>
         </div>
