@@ -116,7 +116,7 @@ const RealEstate=()=>
             case "Office-Rentals":
             {
                 setDisplayVal("Office Rentals")
-                const res=await axiosInstance.get(`/real-estate/getbasedontype/${"Office rentals"}/${location}`)
+                const res=await axiosInstance.get(`/real-estate/getbasedontype/${"Office for Rent"}/${location}`)
                 setAltArr(res.data)
                 break;
             }
