@@ -19,6 +19,7 @@ const today = new Date();
     const hash = await bcrypt.hashSync(req.body.password, salt);
     const newUser = new User({ ...req.body, password: hash });
     const savedUser = await newUser.save();
+       const token = jwt.sign({ id: savedUser._id }, process.env.JWT);
    res.cookie("access_token", token, { httpOnly: true, expiresIn: "1h" }).status(200).json(savedUser);
   } catch (err) {
     next(err);
