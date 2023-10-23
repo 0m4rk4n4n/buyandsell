@@ -151,7 +151,7 @@ setTimeout(() => {
 <div style={{fontSize:15}}>Please Login or create an account to continue.</div>
 <br/>
 <div style={{fontSize:15}}>You are being directed to the registeration page</div>
-<img style={{backgroundColor:"#fff",mixBlendMode:"hard-light",height:100,padding:0,margin:0}} src={LoadingGifff}/>
+<img style={{backgroundColor:"#fff",mixBlendMode:"hard-light",minHeight:100,padding:0,margin:0}} src={LoadingGifff}/>
 </span>
         </DialogContent>
       </Dialog>
