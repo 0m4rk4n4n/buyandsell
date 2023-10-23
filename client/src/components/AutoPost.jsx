@@ -7,15 +7,14 @@ return(<>
       <Link style={{textDecoration:"none",color:"inherit"}} to={`/ad/${ad._id}`}>
 
       <div style={{position:"relative"}} className="post">
-      <div className="imgHeight" style={{width:"160px",maxHeight:120}}>
-        <img style={{display:"flex",maxHeight:120,justifyContent:"center",height:80}} width={100} className="cardImage imgHeight" src={ad.Img[0]}/>
+      <div style={{maxHeight:120}} className="imageContainer imgHeight">
+        <img style={{display:"flex",justifyContent:"center",maxHeight:120}} className="cardImage imgHeight" src={ad.Img[0]}/>
         </div>
-        <div style={{width:"100%"}} height={100} className="cardDetails">
+        <div style={{width:"100%"}} className="cardDetails">
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-        <div className="autoTitle" style={{fontWeight:"bold",color:"#373373",fontSize:22}}>{ad.title[0].toUpperCase() + ad.title.slice(1).toLowerCase()}</div>
-        <div className="priceForMobile" style={{color:"green",fontWeight:"bold",fontSize:20}}>{"$"}{ad.price && ad.price.toLocaleString()}</div>
+        <div className="autoTitle" style={{fontWeight:"bold",color:"#373373",fontSize:22}}>{ad.title[0].toUpperCase() + ad.title.slice(1)}</div>
+        <div className="priceForMobile" style={{color:"green",fontWeight:"bold",fontSize:20}}>{"$"}{ad.price.toLocaleString()}</div>
         </div>
-
         <div className="detailsforMobile" style={{display:"flex",alignItems:"center",gap:10}}>
             <div className="location">{ad.location==="Newfoundland and Labrador" ? "Newfoundland" : ad.location}</div>
             <div>|</div>
