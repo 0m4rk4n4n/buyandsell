@@ -213,7 +213,7 @@ oldestF? page>=1? tempArr.slice(0,page*10).map(ad=>
     
         (loading? <h5 style={{textAlign:"center"}}><img className="loadingGif" width={50} src={LoadingGif}/></h5>
         :ads.length===0 ? <h5  style={{textAlign:"center"}}>No Results.</h5>
-        : ads.length<10 ? <h5  style={{textAlign:"center",cursor:"pointer"}}>You viewed all results</h5>
+        : ads.length<10 ? <h5  style={{textAlign:"center"}}>You viewed all results</h5>
         :    <h5 onClick={incPage} className={`${page!==1010101010101010 && "loadMore"}`} style={{textAlign:"center",cursor:`${page!==1010101010101010 ? "pointer" : ""}`}}>{page===1010101010101010 ? "You viewed all results" : "Load More..."}</h5>
     )}
     </div>
