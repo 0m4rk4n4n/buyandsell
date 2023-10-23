@@ -1584,7 +1584,7 @@ return(<>
 </div>
 </div>
 <div className="hr"></div>
-<div className="title">Car Make:</div>
+<div className="title">Color:</div>
 
 <div onClick={()=>{handleNavigation(72)}} className="unsel3ct3d">Red  ({Red})</div>
 <div onClick={()=>{handleNavigation(73)}} className="unsel3ct3d">Silver   ({Silver})</div>
