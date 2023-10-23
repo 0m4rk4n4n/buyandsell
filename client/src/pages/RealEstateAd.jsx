@@ -251,7 +251,7 @@ setTimeout(() => {
 <AttachMoneyIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>{ad?.type==="Long term rentals" || ad?.type==="Short term rentals" || ad?.type==="Office for Rent" || ad?.type==="Room for Rent" ? "Rental" : "Price"}:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" $"}{ad?.price}/Month</span></div>
 </div>
-{ad.type!=="Land for sale" && <div style={{display:`${!ad.rental ? "none" : "flex}`,alignItems:"center",gap:10,marginBottom:50}}>
+{ad.type!=="Land for sale" && <div style={{display:`${!ad.rental ? "none" : "flex"}`,alignItems:"center",gap:10,marginBottom:50}}>
 <PetsIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Pets Allowed:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.pets===true ? "Yes" : "No"}</span></div>
 </div>}
@@ -479,7 +479,7 @@ setTimeout(() => {
 <AttachMoneyIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>{ad?.type==="Long term rentals" || ad?.type==="Short term rentals" || ad?.type==="Office for Rent" || ad?.type==="Room for Rent" ? "Rental" : "Price"}:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" $"}{ad?.price}/Month</span></div>
 </div>
-{ad.type!=="Land for sale" && <div style={{display:`${!ad.rental ? "none" : "flex}`,alignItems:"center",gap:10,marginBottom:50}}>
+{ad.type!=="Land for sale" && <div style={{display:`${!ad.rental ? "none" : "flex"}`,alignItems:"center",gap:10,marginBottom:50}}>
 <PetsIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Pets Allowed:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.pets===true ? "Yes" : "No"}</span></div>
 </div>}
