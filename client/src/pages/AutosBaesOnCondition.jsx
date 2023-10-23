@@ -1593,7 +1593,7 @@ return(<>
 <div onClick={()=>{handleNavigation(75)}} className="unsel3ct3d">Blue   ({Blue})</div>
 <div onClick={()=>{handleNavigation(76)}} className="unsel3ct3d">Brown   ({Brown})</div>
 <div  className="view" onClick={()=>setViewed2(prev=>!prev)} style={{textAlign:"center",padding:10,cursor:"pointer",color:"blue",fontWeight:"bold",display:`${!viewed2 ? "block" : "none"}`}}>
-    View All Makes
+    View All Colors
 </div>
 <div className={`${!viewed2 && "secondSection"}`}>
 
