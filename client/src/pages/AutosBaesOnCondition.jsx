@@ -32,6 +32,7 @@ const AutosBasedOnCondition=()=>
     const [officeRentals,setOfficeRentals]=useState(0)
     const [housesForSale,setHousesForSale]=useState(0)
     const [condosForSale,setCondosForSale]=useState(0)
+    const [viewed2,setViewed2]=useState(false)
     const [landForSale,SetLandForSale]=useState(0)
     const [officeForSale,setOfficeForSale]=useState(0)
     const [petFriendly,setPetFriendly]=useState(0)
@@ -1591,6 +1592,11 @@ return(<>
 <div onClick={()=>{handleNavigation(74)}} className="unsel3ct3d">Black   ({Black})</div>
 <div onClick={()=>{handleNavigation(75)}} className="unsel3ct3d">Blue   ({Blue})</div>
 <div onClick={()=>{handleNavigation(76)}} className="unsel3ct3d">Brown   ({Brown})</div>
+<div  className="view" onClick={()=>setViewed2(prev=>!prev)} style={{textAlign:"center",padding:10,cursor:"pointer",color:"blue",fontWeight:"bold",display:`${!viewed2 ? "block" : "none"}`}}>
+    View All Makes
+</div>
+<div className={`${!viewed2 && "secondSection"}`}>
+
 <div onClick={()=>{handleNavigation(77)}} className="unsel3ct3d">Green   ({Green})</div>
 <div onClick={()=>{handleNavigation(78)}} className="unsel3ct3d">White  ({White})</div>
 <div onClick={()=>{handleNavigation(79)}} className="unsel3ct3d">Orange   ({Orange})</div>
@@ -1600,6 +1606,10 @@ return(<>
 <div onClick={()=>{handleNavigation(83)}} className="unsel3ct3d">Tan  ({Tan})</div>
 <div onClick={()=>{handleNavigation(84)}} className="unsel3ct3d">Pink  ({Pink})</div>
 <div onClick={()=>{handleNavigation(85)}} className="unsel3ct3d">Purple  ({Purple})</div>
+<div className="view" onClick={()=>setViewed2(prev=>!prev)} style={{textAlign:"center",padding:10,cursor:"pointer",color:"blue",fontWeight:"bold",display:`${viewed2 ? "block" : "none"}`}}>
+    View Less
+</div>
+</div>
 <div className="hr"></div>
 </div>
 <div className="title">Price:</div>
