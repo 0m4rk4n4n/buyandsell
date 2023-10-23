@@ -95,56 +95,56 @@ const RealEstate=()=>
             case "Long-Term-Rentals":
             {
                 setDisplayVal("Long Term Rentals")
-                const res=await axiosInstance.get(`/real-estate/getbasedontype/${"Long term rentals"}/${location}`)
+                const res=await axiosInstance.get(`/real-estate/getbasedontype/Long term rentals/${location}`)
                 setAltArr(res.data)
                 break;
             }
             case "Short-Term-Rentals":
             {
                 setDisplayVal("Short Term Rentals")
-                const res=await axiosInstance.get(`/real-estate/getbasedontype/${"Short term rentals"}/${location}`)
+                const res=await axiosInstance.get(`/real-estate/getbasedontype/Short term rentals/${location}`)
                 setAltArr(res.data)
                 break;
             }
             case "Room-Rentals":
             {
                 setDisplayVal("Room Rentals")
-                const res=await axiosInstance.get(`/real-estate/getbasedontype/${"Room for Rent"}/${location}`)
+                const res=await axiosInstance.get(`/real-estate/getbasedontype/Room for Rent/${location}`)
                 setAltArr(res.data)
                 break;
             }
             case "Office-Rentals":
             {
                 setDisplayVal("Office Rentals")
-                const res=await axiosInstance.get(`/real-estate/getbasedontype/${"Office for Rent"}/${location}`)
+                const res=await axiosInstance.get(`/real-estate/getbasedontype/Office for Rent/${location}`)
                 setAltArr(res.data)
                 break;
             }
             case "Houses-For-Sale":
             {
                 setDisplayVal("Houses For Sale")
-                const res=await axiosInstance.get(`/real-estate/getbasedontype/${"House for sale"}/${location}`)
+                const res=await axiosInstance.get(`/real-estate/getbasedontype/House for sale/${location}`)
                 setAltArr(res.data)
                 break;
             }
             case "Condos-For-Sale":
             {
                 setDisplayVal("Condos For Sale")
-                const res=await axiosInstance.get(`/real-estate/getbasedontype/${"Condo for sale"}/${location}`)
+                const res=await axiosInstance.get(`/real-estate/getbasedontype/Condo for sale/${location}`)
                 setAltArr(res.data)
                 break;
             }
             case "Land-For-Sale":
             {
                 setDisplayVal("Land For Sale")
-                const res=await axiosInstance.get(`/real-estate/getbasedontype/${"Land for sale"}/${location}`)
+                const res=await axiosInstance.get(`/real-estate/getbasedontype/Land for sale/${location}`)
                 setAltArr(res.data)
                 break;
             }
             case "Offices-For-Sale":
             {
                 setDisplayVal("Office For Sale")
-                const res=await axiosInstance.get(`/real-estate/getbasedontype/${"Office for sale"}/${location}`)
+                const res=await axiosInstance.get(`/real-estate/getbasedontype/Office for sale/${location}`)
                 setAltArr(res.data)
                 break;
             }
