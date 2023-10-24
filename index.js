@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, "./client/build")));
 
 const io = socketIo(server, {
   cors: {
-    origin: "https://buyandsell.vip"
+    origin: "https://sellsphere.online"
   },
 });
 
