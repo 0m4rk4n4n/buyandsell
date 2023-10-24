@@ -14,14 +14,14 @@ return(<div className="footer">
 <div className="hide00">
     <div className="changeGap" style={{paddingTop:"3%",padding:"0px 80px",display:"flex",alignItems:"center",gap:"20%"}}>
         <div  className="hide01">
-        <div style={{color:"#fff",fontWeight:"bold",paddingTop:"16%"}}>About Buy and Sell</div>
+        <div style={{color:"#fff",fontWeight:"bold",paddingTop:"16%"}}>About Sellsphere</div>
         <br/>
         <p className="par" style={{color:"#fff",width:550}}>
-    Are you looking to buy or sell cars, real estate, find the perfect job, access essential services, or even find a loving pet to bring into your home? Look no further! Buy and Sell is your comprehensive online platform designed to meet all your buying and selling needs. With our easy-to-use and intuitive interface, you can navigate through a wide range of listings, connect with other users, and make transactions with confidence. <Link to="/about">Learn More</Link>
+    Are you looking to buy or sell cars, real estate, find the perfect job, access essential services, or even find a loving pet to bring into your home? Look no further! Sellsphere is your comprehensive online platform designed to meet all your buying and selling needs. With our easy-to-use and intuitive interface, you can navigate through a wide range of listings, connect with other users, and make transactions with confidence. <Link to="/about">Learn More</Link>
     </p>
         </div>
         <div className="drag" style={{marginTop:"5%"}}>
-        <div className="buyandsell" style={{color:"#fff",fontWeight:"bold"}}>Buy and Sell Ads</div>
+        <div className="buyandsell" style={{color:"#fff",fontWeight:"bold"}}>Sellsphere Ads</div>
         <div style={{color:"#fff",textAlign:"center"}}>
         <Link to="/autosbasedoncondition/con+any+condition" style={{marginTop:10,color:"inherit",display:"inherit"}}>Cars</Link>
         <Link to="/real-estate/ads" style={{marginTop:10,color:"inherit",display:"inherit"}}>Real Estate</Link>
@@ -54,10 +54,10 @@ return(<div className="footer">
         </div>}
     </div>
         <div style={{display:"none"}} className="show01">
-        <div style={{color:"#fff",fontWeight:"bold",marginTop:"5%"}}>About Buy and Sell</div>
+        <div style={{color:"#fff",fontWeight:"bold",marginTop:"5%"}}>About Sellsphere</div>
      <br/>
         <p className="par" style={{color:"#fff",minWidth:"70%",textAlign:"center",margin:"10px auto"}}>
-    Are you looking to buy or sell cars, real estate, find the perfect job, access essential services, or even find a loving pet to bring into your home? Look no further! Buy and Sell is your comprehensive online platform designed to meet all your buying and selling needs. With our easy-to-use and intuitive interface, you can navigate through a wide range of listings, connect with other users, and make transactions with confidence. <Link to="/about">Learn More</Link>
+    Are you looking to buy or sell cars, real estate, find the perfect job, access essential services, or even find a loving pet to bring into your home? Look no further! Sellsphere is your comprehensive online platform designed to meet all your buying and selling needs. With our easy-to-use and intuitive interface, you can navigate through a wide range of listings, connect with other users, and make transactions with confidence. <Link to="/about">Learn More</Link>
     </p>
     <br/>
         </div>
