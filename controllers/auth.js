@@ -12,7 +12,7 @@ const {v4:uuid}=require("uuid")
 const today = new Date();
  const RegisterUser = async (req, res, next) => {
   try {
-    const email=await User.findOne({email:req.body.email})
+    const email=await User.findOne({email: { $regex: req.body.email, $options: "i" }})
     if (email)
     res.status(409).json("Email is already registered")
     const salt = await bcrypt.genSaltSync(10);
@@ -27,7 +27,7 @@ const today = new Date();
 };
  const loginUser = async (req, res, next) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({email: { $regex: req.body.email, $options: "i" }});
     if (!user) return next(createError(404, "User not found!"));
     const isCorrect = await bcrypt.compare(req.body.password, user.password);
     if (!isCorrect) return next(createError(401, "Wrong Credentials!"));
