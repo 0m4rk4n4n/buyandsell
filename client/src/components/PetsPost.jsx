@@ -6,11 +6,11 @@ const PetsPost=({ad})=>
 const [desc,setDesc]=useState(" 7 seaters , runs good , winter tires , heated seats , 3.6 Engine, fully loaded, sunroof, clean title RTL Active status Alberta Registered Phone: (825-994-5299)")
 return(<>
       <Link style={{textDecoration:"none",color:"inherit"}} to={`/petsad/${ad._id}`}>
-      <div className="post">
-      <div style={{minHeight:120}} className="imageContainer imgHeight">
-        <img style={{minHeight:120}} className="cardImage imgHeight" src={ad.Img[0]}/>
+      <div style={{position:"relative"}} className="post">
+      <div style={{maxHeight:120}} className="imageContainer imgHeight">
+        <img style={{display:"flex",justifyContent:"center",maxHeight:120}} className="cardImage imgHeight" src={ad.Img[0]}/>
         </div>
-        <div style={{width:"100%"}} className="">
+        <div style={{width:"100%"}} className="cardDetails">
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <div className="autoTitle" style={{fontWeight:"bold",color:"#373373",fontSize:22}}>{ad.title[0].toUpperCase() + ad.title.slice(1)}</div>
         <div className="priceForMobile" style={{color:"green",fontWeight:"bold",fontSize:20}}>{"$"}{ad.price.toLocaleString()}</div>
