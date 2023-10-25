@@ -89,7 +89,7 @@ return(<div style={{overflow:"hidden"}}>
         aria-describedby="alert-dialog-description"
       >
         <DialogContent >
-<span className="locationsBar DialogContent" style={{display:"block",textAlign:"center",width:300,backgroundColor:"#fff",height:"610px",color:"#373373",cursor:"pointer",padding:10,fontSize:20}}>
+<span className="locationsBar DialogContent" style={{display:"block",textAlign:"center",width:300,backgroundColor:"#fff",height:610,color:"#373373",cursor:"pointer",padding:10,fontSize:20}}>
 <ul onClick={()=>{chgLoc("Canada")}} className="pElements">All provinces</ul>
 <ul onClick={()=>{chgLoc("Alberta")}} className="pElements">Alberta</ul>
 <ul onClick={()=>{chgLoc("British Colombia")}} className="pElements">British Colombia</ul>
