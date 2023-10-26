@@ -239,7 +239,7 @@ setTimeout(() => {
 </div>}
   {!ad.rental && <div style={{display:"flex",alignItems:"center",gap:10}}>
 <VerifiedUserIcon/>
-<div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Posted by:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" Owner"}</span></div>
+<div><span style={{display:`${!ad.rental ? "none" : "flex"}`,color:"rgb(55, 51, 115)",fontWeight:"600"}}>Posted by:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" Owner"}</span></div>
 </div>}
 </div>
 <div>
@@ -467,7 +467,7 @@ setTimeout(() => {
 </div>}
   {!ad.rental && <div style={{display:"flex",alignItems:"center",gap:10}}>
 <VerifiedUserIcon/>
-<div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Posted by:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" Owner"}</span></div>
+<div><span style={{display:`${!ad.rental ? "none" : "flex"}`,color:"rgb(55, 51, 115)",fontWeight:"600"}}>Posted by:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" Owner"}</span></div>
 </div>}
 </div>
 <div>
