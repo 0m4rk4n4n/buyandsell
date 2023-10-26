@@ -237,7 +237,7 @@ setTimeout(() => {
 <BathroomIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Bathrooms:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.bathrooms}</span></div>
 </div>}
-  {!ad.rental && <div style={{display:"flex",alignItems:"center",gap:10}}>
+  {ad.rental && <div style={{display:"flex",alignItems:"center",gap:10}}>
 <VerifiedUserIcon/>
 <div><span style={{display:`${!ad.rental ? "none" : "flex"}`,color:"rgb(55, 51, 115)",fontWeight:"600"}}>Posted by:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" Owner"}</span></div>
 </div>}
@@ -465,7 +465,7 @@ setTimeout(() => {
 <BathroomIcon/>
 <div><span style={{color:"rgb(55, 51, 115)",fontWeight:"600"}}>Bathrooms:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" "}{ad?.bathrooms}</span></div>
 </div>}
-  {!ad.rental && <div style={{display:"flex",alignItems:"center",gap:10}}>
+  {ad.rental && <div style={{display:"flex",alignItems:"center",gap:10}}>
 <VerifiedUserIcon/>
 <div><span style={{display:`${!ad.rental ? "none" : "flex"}`,color:"rgb(55, 51, 115)",fontWeight:"600"}}>Posted by:</span><span style={{fontWeight:"500",color:"#61635f"}}>{" Owner"}</span></div>
 </div>}
