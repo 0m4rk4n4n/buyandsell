@@ -4,6 +4,7 @@ import { axiosInstance } from "../config/Config.js"
 import { useDispatch, useSelector } from "react-redux"
 import Avatar from "../resources/user_icon.png"
 import { setSelectedConversation } from "../redux/conversation"
+import typing from "../Gif/typing.gif"
 const ChatFriend=({conversation,socket,setTargetId,setTarConv})=>
 {
     const [user,setUser]= useState({})
@@ -14,6 +15,7 @@ const ChatFriend=({conversation,socket,setTargetId,setTarConv})=>
     const dispatch=useDispatch()
     const [notificationn,setNotificationn]=useState(false)
     const [otherUser,setOtherUser]=useState(null)
+    const UserTyping=useRef(false)
     const notificationRef = useRef(false);
     useEffect(() => {
       if (socket) {
@@ -21,8 +23,14 @@ const ChatFriend=({conversation,socket,setTargetId,setTarConv})=>
           if (data.senderId === conversation.members[0] || data.senderId === conversation.members[1]) {
             notificationRef.current = true;
           }
+          socket.on("getTyper",(data)=>
+          {
+            if(data.conversationId===conversation._id)
+            {
+              UserTyping.current=true
+            }
+          })
         });
-    
         return () => {
           socket.off("getMessage");
         };
@@ -109,6 +117,7 @@ const ChatFriend=({conversation,socket,setTargetId,setTarConv})=>
         <div style={{mixBlendMode:"multiply"}} className="chat_img"> <img src={Avatar} alt="Avatar"/> </div>
         <div style={{position:"relative"}} className="chat_ib">
           <h5 className="chatName">{user.name && user.name.charAt(0).toUpperCase() + user.name.slice(1)} <span className="chat_date">{conversation.updatedAt && conversation.updatedAt.split("T")[0]}</span></h5>
+          {UserTyping.current && <img width={30} style={{mixBlendMode:"multiply"}} src={typing}/>}
         </div>
       </div>
            {!loading && (read || notificationRef.current) && <div className="NewMsg" style={{color:"crimson",textAlign:"right"}}>New Message</div>}
