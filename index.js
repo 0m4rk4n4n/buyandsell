@@ -79,6 +79,11 @@ io.on("connection",(socket)=>
         getUser(senderId)
         io.to(targetUser.socketId).emit("getMessage",{senderId,text,receiverId,conversationId})
     })
+    socket.on("sendTyper",({senderId,receiverId,conversationId})=>
+    {
+        getUser(senderId)
+        io.to(targetUser.socketId).emit("getTyper",{senderId,receiverId,conversationId})
+    })
     socket.on("disconnect",()=>
     {
         console.log("a user disconnected")
