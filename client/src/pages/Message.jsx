@@ -11,6 +11,7 @@ import {io} from "socket.io-client"
 import LoadingGif from "../Gif/loading.gif"
 import { setSelectedConversation } from "../redux/conversation";
 import { useParams } from "react-router-dom";
+import typingGif from "../Gif/typing.gif"
 const Message=()=>
 {
     const [conversations,setConversations]=useState([])
@@ -27,6 +28,7 @@ const Message=()=>
     const [targetId,setTargetId]=useState(null)
     const [unreadConvs,setUnreadConvs]=useState([])
     const [arrivalMessage,setArrivalMessage]=useState({})
+    const [otherUserId,setOtherUserId]=useState("")
     const msgInp=useRef()
     const [loading2,setLoading2]=useState(false)
     const ref=useRef()
@@ -35,9 +37,8 @@ const Message=()=>
     const [target,setTarget]=useState(null)
     const [read,setRead]=useState([])
     const path=useParams()
+    const [typing,setTyping]=useState(false)
     useEffect(()=>{window.scrollTo({ top: 0 });},[])
-    
-
     useEffect(()=>
     {
       if(path.id!=="1")
@@ -84,6 +85,7 @@ const Message=()=>
           setLoading(true)
           const res=await axiosInstance.get(`/auth/getuser/${targetId}`)
           setName(res.data.name)
+          setOtherUserId(res.data._id)
           setLoading(false)
         }
       }
@@ -106,8 +108,7 @@ const Message=()=>
             setLoading(true)
             try
             {
-             setSocket(io(`https://sellsphere.online`, {transports: ['websocket']}))
-
+            setSocket(io(`https://sellsphere.online`, {transports: ['websocket']}))
             }
             catch(e)
             {
@@ -153,6 +154,20 @@ const Message=()=>
           {
             setConId(data.conversationId)
           })
+      })
+    })
+    useEffect(()=>
+    {
+      socket!==null && socket.on("getTyper",(data)=>
+      {
+        if(data.conversationId===selectedConversation._id && data.senderId===otherUserId && data.receiverId===currentUser._id && selectedConversation?.members.includes(data.receiverId) && selectedConversation?.members.includes(data.senderId))
+        {
+          setTyping(true)
+        }
+        clearTimeout(window.typingTimeout);
+    window.typingTimeout = setTimeout(() => {
+      setTyping(false)
+    }, 500);
       })
     })
     useEffect(()=>
@@ -209,10 +224,11 @@ const Message=()=>
         console.clear()
       }
     },[tarConv])
-    useEffect(()=>
+    const handleTyping=(e)=>
     {
-      
-    },[selectedConversation])
+        setMessage(e.target.value)
+        socket?.emit("sendTyper",{senderId:currentUser._id,receiverId:targetId,conversationId:selectedConversation._id})
+    }
     const sendMessage=()=>
     {
         const fun=async()=>
@@ -242,7 +258,7 @@ const Message=()=>
     <div style={{color:"rgb(55, 51, 115)",fontWeight:"bold",textAlign:"center",margin:"0px",fontSize:25,backgroundColor:"rgb(248, 249, 249)",padding:10}}>Messages</div>
     <div className="MessageSection" style={{backgroundColor:"rgb(248, 249, 249)",minHeight:"100vh",display:"flex",overflow:"hidden"}}>
     <div style={{margin:10}} className="messaging">
-      <div  className="inbox_msg">
+      <div className="inbox_msg">
         <div className="inbox_people">
           <div className="headind_srch">
             <div className="recent_heading">
@@ -272,9 +288,13 @@ const Message=()=>
                   return (<><IncomingMessage key={message._id} message={message}/><div ref={ref} /></>)
                 })}
           </div>
+{typing &&           <div style={{display:"flex",alignItems:"center",gap:5,padding:5}}>
+            <img style={{mixBlendMode:"multiply"}} src={typingGif} width={40} alt="Typing gif"/>
+            <div style={{padding:5,fontFamily:"inherit"}}>{name} is typing...</div>
+          </div>}
           <div className="type_msg">
 {conversations.length!==0 && tarConv!==null &&             <div className="input_msg_write">
-              <input ref={msgInp} onKeyPress={(e)=>{handleKeyPress(e)}} onChange={(e)=>{setMessage(e.target.value)}} type="text" className="write_msg" placeholder="Type a message" />
+              <input ref={msgInp} onKeyPress={(e)=>{handleKeyPress(e)}} onChange={(e)=>{handleTyping(e)}} type="text" className="write_msg" placeholder="Type a message" />
             <div onClick={sendMessage} className="msg_send_btn"><SendIcon/></div>
           </div> }
         </div></>}
