@@ -43,14 +43,14 @@ const io = socketIo(server, {
   },
 });
 
-const addUser=((userId,socketId)=>
-{
-    userId!==null && users.push({userId,socketId})
-    !users.some((user)=>
-        {
-            return (user.userId===userId)
-        })
-})
+const addUser = (userId, socketId) => {
+  const existingUser = users.find(user => user.userId === userId);
+  if (!existingUser) {
+      users.push({ userId, socketId });
+  } else {
+      existingUser.socketId = socketId;
+  }
+}
 const removeUser=(socketId=>
     {
         users=users.filter(user=>
@@ -83,6 +83,7 @@ io.on("connection",(socket)=>
     {
         getUser(senderId)
         io.to(targetUser.socketId).emit("getTyper",{senderId,receiverId,conversationId})
+        console.log("sender Id: ",senderId,"\n","conversation Id: ",conversationId,"\n","receiver Id: ",receiverId)
     })
     socket.on("disconnect",()=>
     {
@@ -117,4 +118,3 @@ mongoose.set("strictQuery", false);
 server.listen(process.env.PORT || 5534, () => {
   console.log(`Server is listening on port ${process.env.PORT || 5534}`);
 });
-
