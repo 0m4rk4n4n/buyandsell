@@ -20,6 +20,7 @@ const Message=()=>
     const [tarConv,setTarConv]=useState(null)
     const [socket,setSocket]=useState(null)
     const [name,setName]=useState("")
+    const [typingStatus, setTypingStatus] = useState({});
     const { currentUser } = useSelector(state=>state.user)
     const [messages,setMessages]=useState([])
     const [loading,setLoading]=useState(false)
@@ -38,12 +39,12 @@ const Message=()=>
     const [read,setRead]=useState([])
     const path=useParams()
     const [typing,setTyping]=useState(false)
+    const typingConv=useRef("")
     useEffect(()=>{window.scrollTo({ top: 0 });},[])
     useEffect(()=>
     {
       if(path.id!=="1")
       {
-
         const fun=async()=>
         {
           const res=await axiosInstance.get(`/conversation/searchforaconversation/${path.id}/${currentUser._id}`)
@@ -90,7 +91,7 @@ const Message=()=>
         }
       }
       fun()
-    },[selectedConversation])
+    },[targetId])
     useEffect(()=>{
         ref.current?.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})
         messages.forEach(message=>
@@ -108,7 +109,8 @@ const Message=()=>
             setLoading(true)
             try
             {
-            setSocket(io(`https://sellsphere.online`, {transports: ['websocket']}))
+              setSocket(io(`https://sellsphere.online`, {transports: ['websocket']}))
+
             }
             catch(e)
             {
@@ -156,20 +158,30 @@ const Message=()=>
           })
       })
     })
-    useEffect(()=>
-    {
-      socket!==null && socket.on("getTyper",(data)=>
-      {
-        if(data.conversationId===selectedConversation._id && data.senderId===otherUserId && data.receiverId===currentUser._id && selectedConversation?.members.includes(data.receiverId) && selectedConversation?.members.includes(data.senderId))
-        {
-          setTyping(true)
-        }
-        clearTimeout(window.typingTimeout);
-    window.typingTimeout = setTimeout(() => {
-      setTyping(false)
-    }, 500);
-      })
-    })
+    useEffect(() => {
+      socket !== null &&
+        socket.on("getTyper", (data) => {
+          typingConv.current=data.conversationId
+          if (
+            selectedConversation?.members.includes(data.senderId) &&
+            selectedConversation?.members.includes(data.receiverId)
+          ) {
+            setTypingStatus((prevTypingStatus) => ({
+              ...prevTypingStatus,
+              [data.conversationId]: true
+            }));
+          }
+    
+          clearTimeout(window.typingTimeout);
+          window.typingTimeout = setTimeout(() => {
+            typingConv.current=""
+            setTypingStatus((prevTypingStatus) => ({
+              ...prevTypingStatus,
+              [data.conversationId]: false,
+            }));
+          }, 500);
+        });
+    }, [selectedConversation, socket]);
     useEffect(()=>
     {
       arrivalMessage!==null && selectedConversation!==null && selectedConversation && selectedConversation.members.includes(arrivalMessage.sender) && currentUser._id === arrivalMessage.receiver  && selectedConversation.members.includes(currentUser._id)  && setMessages((prev)=>[...prev,arrivalMessage])
@@ -185,11 +197,11 @@ const Message=()=>
               if(tarConv)
               {
                 const res=await axiosInstance.post(`/message/`,{conversationId:tarConv,sender:currentUser._id,message:message})
-                socket?.emit("sendMessage",{senderId:currentUser._id,receiverId:targetId,text:message,conversationId:selectedConversation._id})
+                socket?.emit("sendMessage",{senderId:currentUser._id,receiverId:targetId,text:message,conversationId:selectedConversation?._id})
                 setMessages([...messages,res.data])
                 msgInp.current.value=""
                 setMessage("")
-                await axiosInstance.put(`/conversation/update/${Date.now()}/${selectedConversation._id}`)
+                await axiosInstance.put(`/conversation/update/${Date.now()}/${selectedConversation?._id}`)
               }
             }   
             catch(e)
@@ -227,7 +239,7 @@ const Message=()=>
     const handleTyping=(e)=>
     {
         setMessage(e.target.value)
-        socket?.emit("sendTyper",{senderId:currentUser._id,receiverId:targetId,conversationId:selectedConversation._id})
+        socket?.emit("sendTyper",{senderId:currentUser._id,receiverId:targetId,conversationId:selectedConversation?._id})
     }
     const sendMessage=()=>
     {
@@ -238,11 +250,11 @@ const Message=()=>
             try 
             {
                const res=await axiosInstance.post(`/message/`,{conversationId:tarConv,sender:currentUser._id,message:message})
-               socket?.emit("sendMessage",{senderId:currentUser._id,receiverId:targetId,text:message,conversationId:selectedConversation._id})
+               socket?.emit("sendMessage",{senderId:currentUser._id,receiverId:targetId,text:message,conversationId:selectedConversation?._id})
                setMessages([...messages,res.data])
                msgInp.current.value=""
                setMessage("")
-               await axiosInstance.put(`/conversation/update/${Date.now()}/${selectedConversation._id}`)
+               await axiosInstance.put(`/conversation/update/${Date.now()}/${selectedConversation?._id}`)
             }   
             catch(e)
             {
@@ -267,7 +279,7 @@ const Message=()=>
           </div>
           {conversations.slice().sort((a, b) => a.updatedAt > b.updatedAt ? -1 : 1).map(conversation=>
             {
-                return <ChatFriend key={conversation._id} setTargetId={setTargetId} setTarConv={setTarConv} tarConv={tarConv} notificationId={null} socket={socket} setName={setName} conversation={conversation} unreadConvs={unreadConvs}/>
+                return <ChatFriend key={conversation._id} conId={tarConv} typingConv={typingConv} setTargetId={setTargetId} setTarConv={setTarConv} tarConv={tarConv} notificationId={null} socket={socket} selectedConversation={selectedConversation} setName={setName} conversation={conversation} unreadConvs={unreadConvs}/>
             })}
         </div>
         <div className="mesgs">
@@ -288,12 +300,14 @@ const Message=()=>
                   return (<><IncomingMessage key={message._id} message={message}/><div ref={ref} /></>)
                 })}
           </div>
-{typing &&           <div style={{display:"flex",alignItems:"center",gap:5,padding:5}}>
-            <img style={{mixBlendMode:"multiply"}} src={typingGif} width={40} alt="Typing gif"/>
-            <div style={{padding:5,fontFamily:"inherit"}}>{name} is typing...</div>
-          </div>}
+          {typingStatus[selectedConversation?._id] && tarConv!==null && (
+  <div style={{ display: "flex", alignItems: "center", gap: 5, padding: 5 }}>
+    <img style={{ mixBlendMode: "multiply" }} src={typingGif} width={40} alt="Typing gif" />
+    <div style={{ padding: 5, fontFamily: "inherit" }}>{name} is typing...</div>
+  </div>
+)}
           <div className="type_msg">
-{conversations.length!==0 && tarConv!==null &&             <div className="input_msg_write">
+{conversations.length!==0 && tarConv!==null &&              <div className="input_msg_write">
               <input ref={msgInp} onKeyPress={(e)=>{handleKeyPress(e)}} onChange={(e)=>{handleTyping(e)}} type="text" className="write_msg" placeholder="Type a message" />
             <div onClick={sendMessage} className="msg_send_btn"><SendIcon/></div>
           </div> }
