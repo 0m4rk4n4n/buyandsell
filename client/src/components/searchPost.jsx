@@ -5,9 +5,9 @@ const searchPost=({ad})=>
 {
 return(<>
       <Link style={{textDecoration:"none",color:"inherit",position:"relative"}} to={`/${ad.adType==="auto" ? "ad" : ad.adType==="service" ? "servicead" : ad.adType==="realestate" ? "realestatead" : ad.adType==="job" ? "jobad" : "petsad"}/${ad._id}`}>
-      <div className="post">
-      <div style={{maxHeight:"120px"}} className="imageContainer">
-        <img style={{maxHeight:120}} className="cardImage" src={ad.Img[0]}/>
+      <div style={{position:"relative"}} className="post">
+      <div style={{maxHeight:120}} className="imageContainer imgHeight">
+        <img style={{display:"flex",justifyContent:"center",maxHeight:120}} className="cardImage imgHeight" src={ad.Img[0]}/>
         </div>
         <div style={{width:"100%"}} className="cardDetails">
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
@@ -21,7 +21,7 @@ return(<>
             <div>{format(ad.createdAt)}</div>
         </div>
         <div style={{height:3}}></div>
-        <div className="desc paddingOff">
+        <div className="desc">
         {ad.description.length>180 ? ad.description.slice(0,180)+"..." : ad.description}
             </div>
             <div style={{display:"none"}} className="descForMobile">
