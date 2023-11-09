@@ -34,7 +34,6 @@ const Message=()=>
     const [loading2,setLoading2]=useState(false)
     const ref=useRef()
     const [conId,setConId]=useState(null)
-    const {conversationId}=useSelector(state=>state.notificationName)
     const [target,setTarget]=useState(null)
     const [read,setRead]=useState([])
     const path=useParams()
@@ -109,7 +108,7 @@ const Message=()=>
             setLoading(true)
             try
             {
-              setSocket(io(`https://sellsphere.online`, {transports: ['websocket']}))
+              setSocket(io(`http://localhost:5534`, {transports: ['websocket']}))
 
             }
             catch(e)
