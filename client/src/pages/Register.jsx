@@ -154,9 +154,9 @@ return(<div>
                            <LockIcon style={{position:"absolute",top:28,left:45}}/>
                            </div>
                            <div style={{color:"red",display:`${passwordsEqual ? "none" : "block"}`,fontSize:12,padding:"0px 40px",fontWeight:"bold"}}>Passwords don't match</div>
-                           {alreadyRegisteredMsg && <div style={{margin:"10px 40px",color:"crimson",borderRadius:5,padding:5,width:320,fontWeight:"bold",cursor:"pointer"}}>This email is already registered</div>}
-                           {passwordLengthMsg && <div style={{margin:"10px 40px",color:"crimson",borderRadius:5,padding:5,fontWeight:"bold",fontSize:12,width:350,cursor:"pointer"}}>Password needs to contain at least 10 characters</div>}
-                           {msgg && <div style={{margin:"10px 40px",color:"crimson",borderRadius:5,padding:5,width:320,fontWeight:"bold",fontSize:12,cursor:"pointer"}}>Phone number needs to be 10 digits</div>}
+                           {alreadyRegisteredMsg && <div style={{margin:"10px auto",color:"crimson",borderRadius:5,padding:5,width:320,fontWeight:"bold",cursor:"pointer",textAlign:"center"}}>This email is already registered</div>}
+                           {passwordLengthMsg && <div style={{margin:"10px auto",fontWeight:"bold",color:"crimson",borderRadius:5,padding:5,fontWeight:"bold",fontSize:12,width:350,cursor:"pointer"}}>Password needs to contain at least 10 characters</div>}
+                           {msgg && <div style={{margin:"10px auto",color:"crimson",borderRadius:5,padding:5,width:320,fontWeight:"bold",fontSize:12,cursor:"pointer"}}>Phone number needs to be 10 digits</div>}
                            <Link style={{textDecoration:"none",color:"inherit"}} to="/login">
                            <div style={{textAlign:"center",fontWeight:"bold",padding:5,color:"#373373"}}>Already registered? Sign in instead</div>
                            </Link>
