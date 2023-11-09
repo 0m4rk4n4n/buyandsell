@@ -108,7 +108,7 @@ const Message=()=>
             setLoading(true)
             try
             {
-              setSocket(io(`http://localhost:5534`, {transports: ['websocket']}))
+              setSocket(io(`https://sellsphere.online`, {transports: ['websocket']}))
 
             }
             catch(e)
