@@ -113,7 +113,7 @@ return(<div style={{overflow:"hidden"}}>
 <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
       <div style={{display:"flex",alignItems:"center",justifyContent:"flex-start",width:"25%"}}>
       <Link style={{textDecoration:"none",color:"inherit"}} to="/">
-      <img className="navLogo" width={100} height={50} src={"https://mega.nz/file/BPl0nR7A#dHW_xNQFRepaUVo8dAT7GQUkxYNTJeXzqQU6CZ81E88"} alt="Logo"/>
+      <img className="navLogo" width={100} height={50} src={"https://i.ibb.co/n6gCFrD/logo.png"} alt="Logo"/>
       </Link>
       </div>
       <div style={{display:"flex",alignItems:"center",justifyContent:"center",width:"80%"}}>
