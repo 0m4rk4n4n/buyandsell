@@ -43,7 +43,6 @@ const Navbar=({logged,val,setVal})=>
     const handleLogOut=()=>
     {
       dispatch(logOut())
-      window.location.reload();
       navigate("/")
     }
     const handleCategoryChange=(e)=>
